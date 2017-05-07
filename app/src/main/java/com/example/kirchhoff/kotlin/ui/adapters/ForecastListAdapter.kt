@@ -1,14 +1,17 @@
-package com.example.kirchhoff.kotlin
+package com.example.kirchhoff.kotlin.ui.adapters
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.kirchhoff.kotlin.domain.Forecast
-import com.example.kirchhoff.kotlin.domain.ForecastList
-import com.example.kirchhoff.kotlin.util.ctx
+import com.example.kirchhoff.kotlin.R
+import com.example.kirchhoff.kotlin.domain.model.Forecast
+import com.example.kirchhoff.kotlin.domain.model.ForecastList
+import com.example.kirchhoff.kotlin.extensions.ctx
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_forecast.view.*
+import java.text.DateFormat
+import java.util.*
 
 /**
  * @author Kirchhoff-
@@ -29,7 +32,7 @@ class ForecastListAdapter(val weekForecast: ForecastList,
         holder.bindForecast(weekForecast[position])
     }
 
-    override fun getItemCount(): Int = weekForecast.size()
+    override fun getItemCount(): Int = weekForecast.size
 
     class ViewHolder(view: View, val itemClick: (Forecast) -> Unit) :
             RecyclerView.ViewHolder(view) {
@@ -37,16 +40,17 @@ class ForecastListAdapter(val weekForecast: ForecastList,
         fun bindForecast(forecast: Forecast) {
             with(forecast) {
                 Picasso.with(itemView.ctx).load(iconUrl).into(itemView.icon)
-                itemView.date.text = date
+                itemView.date.text = convertDate(date)
                 itemView.description.text = description
-                itemView.maxTemperature.text = "$high"
-                itemView.minTemperature.text = "$low"
+                itemView.maxTemperature.text = "${high}º"
+                itemView.minTemperature.text = "${low}º"
                 itemView.setOnClickListener { itemClick(this) }
             }
         }
-    }
 
-    interface OnItemClickListener {
-        operator fun invoke(forecast: Forecast)
+        private fun convertDate(date: Long): String {
+            val df = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.getDefault())
+            return df.format(date)
+        }
     }
 }

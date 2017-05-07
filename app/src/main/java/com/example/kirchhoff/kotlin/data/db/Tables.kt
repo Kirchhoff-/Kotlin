@@ -1,4 +1,4 @@
-package com.example.kirchhoff.kotlin.db
+package com.example.kirchhoff.kotlin.data.db
 
 /**
  * @author Kirchhoff-
@@ -9,7 +9,6 @@ object CityForecastTable {
     val CITY = "city"
     val COUNTRY = "country"
 }
-
 
 object DayForecastTable {
     val NAME = "DayForecast"

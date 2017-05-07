@@ -1,22 +1,27 @@
-package com.example.kirchhoff.kotlin.db
+package com.example.kirchhoff.kotlin.data.db
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import com.example.kirchhoff.kotlin.App
+import com.example.kirchhoff.kotlin.ui.App
 import org.jetbrains.anko.db.*
 
 /**
  * @author Kirchhoff-
  */
-class ForecastDbHelper(ctx: Context = App.instance) : ManagedSQLiteOpenHelper(App.instance,
+class ForecastDbHelper(ctx: Context = App.instance) : ManagedSQLiteOpenHelper(ctx,
         ForecastDbHelper.DB_NAME, null, ForecastDbHelper.DB_VERSION) {
+
+    companion object {
+        val DB_NAME = "forecast.db"
+        val DB_VERSION = 1
+        val instance by lazy { ForecastDbHelper() }
+    }
 
     override fun onCreate(db: SQLiteDatabase) {
         db.createTable(CityForecastTable.NAME, true,
                 CityForecastTable.ID to INTEGER + PRIMARY_KEY,
                 CityForecastTable.CITY to TEXT,
                 CityForecastTable.COUNTRY to TEXT)
-
 
         db.createTable(DayForecastTable.NAME, true,
                 DayForecastTable.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
@@ -32,12 +37,5 @@ class ForecastDbHelper(ctx: Context = App.instance) : ManagedSQLiteOpenHelper(Ap
         db.dropTable(CityForecastTable.NAME, true)
         db.dropTable(DayForecastTable.NAME, true)
         onCreate(db)
-    }
-
-
-    companion object {
-        val DB_NAME = "forecast.db"
-        val DB_VERSION = 1
-        val instance by lazy { ForecastDbHelper() }
     }
 }

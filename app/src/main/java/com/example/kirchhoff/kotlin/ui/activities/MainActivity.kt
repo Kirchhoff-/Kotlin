@@ -1,8 +1,11 @@
-package com.example.kirchhoff.kotlin
+package com.example.kirchhoff.kotlin.ui.activities
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import com.example.kirchhoff.kotlin.R
+import com.example.kirchhoff.kotlin.domain.commands.RequestForecastCommand
+import com.example.kirchhoff.kotlin.ui.adapters.ForecastListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.toast
@@ -19,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         forecastList.layoutManager = LinearLayoutManager(this)
 
         doAsync {
-            val result = RequestForecastCommand("94043").execute()
+            val result = RequestForecastCommand(94043).execute()
             uiThread {
                 val adapter = ForecastListAdapter(result, { toast(it.description) })
                 forecastList.adapter = adapter

@@ -1,4 +1,4 @@
-package com.example.kirchhoff.kotlin
+package com.example.kirchhoff.kotlin.ui
 
 import android.app.Application
 
