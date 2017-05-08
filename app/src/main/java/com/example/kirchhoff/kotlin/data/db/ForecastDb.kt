@@ -2,10 +2,7 @@ package com.example.kirchhoff.kotlin.data.db
 
 import com.example.kirchhoff.kotlin.domain.datasource.ForecastDataSource
 import com.example.kirchhoff.kotlin.domain.model.ForecastList
-import com.example.kirchhoff.kotlin.extensions.clear
-import com.example.kirchhoff.kotlin.extensions.parseList
-import com.example.kirchhoff.kotlin.extensions.parseOpt
-import com.example.kirchhoff.kotlin.extensions.toVarargArray
+import com.example.kirchhoff.kotlin.extensions.*
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
 
@@ -26,6 +23,14 @@ class ForecastDb(val forecastDbHelper: ForecastDbHelper = ForecastDbHelper.insta
                 .parseOpt { CityForecast(HashMap(it), dailyForecast) }
 
         if (city != null) dataMapper.convertToDomain(city) else null
+    }
+
+
+    override fun requestDayForecast(id: Long) = forecastDbHelper.use {
+        val forecast = select(DayForecastTable.NAME).byId(id)
+                .parseOpt { DayForecast(HashMap(it)) }
+
+        if (forecast != null) dataMapper.convertDayToDomain(forecast) else null
     }
 
     fun saveForecast(forecast: ForecastList) = forecastDbHelper.use {
