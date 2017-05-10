@@ -11,7 +11,7 @@ import android.support.test.rule.ActivityTestRule
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.widget.TextView
-import com.example.kirchhoff.kotlin.ui.activities.MainActivity
+import com.example.kirchhoff.kotlin.kotlinbook.ui.activities.MainActivity
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers.`is`

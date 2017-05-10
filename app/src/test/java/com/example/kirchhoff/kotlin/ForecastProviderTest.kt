@@ -1,9 +1,9 @@
 package com.example.kirchhoff.kotlin
 
-import com.example.kirchhoff.kotlin.domain.datasource.ForecastDataSource
-import com.example.kirchhoff.kotlin.domain.datasource.ForecastProvider
-import com.example.kirchhoff.kotlin.domain.model.Forecast
-import com.example.kirchhoff.kotlin.domain.model.ForecastList
+import com.example.kirchhoff.kotlin.kotlinbook.domain.datasource.ForecastDataSource
+import com.example.kirchhoff.kotlin.kotlinbook.domain.datasource.ForecastProvider
+import com.example.kirchhoff.kotlin.kotlinbook.domain.model.Forecast
+import com.example.kirchhoff.kotlin.kotlinbook.domain.model.ForecastList
 import junit.framework.Assert.assertNotNull
 import org.junit.Test
 import org.mockito.Matchers.any

@@ -5,13 +5,27 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".ui.App"
+        android:name="com.example.kirchhoff.kotlin.kotlinbook.ui.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.MainActivity">
+        <activity android:name="com.example.kirchhoff.kotlin.kotlinbook.ui.activities.MainActivity" />
+
+        <activity
+            android:name="com.example.kirchhoff.kotlin.kotlinbook.ui.activities.DetailActivity"
+            android:parentActivityName="com.example.kirchhoff.kotlin.kotlinbook.ui.activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.kirchhoff.kotlin.kotlinbook.ui.activities.MainActivity" />
+        </activity>
+
+        <activity
+            android:name="com.example.kirchhoff.kotlin.kotlinbook.ui.activities.SettingsActivity"
+            android:label="@string/settings" />
+
+        <activity android:name=".example.intent.OtherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,18 +33,7 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".ui.activities.DetailActivity"
-            android:parentActivityName=".ui.activities.MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.activities.MainActivity" />
-        </activity>
-
-        <activity
-            android:name=".ui.activities.SettingsActivity"
-            android:label="@string/settings" />
-
+        <activity android:name=".example.intent.UserDetailActivity" />
     </application>
 
 </manifest>

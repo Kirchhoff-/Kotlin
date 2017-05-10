@@ -1,6 +1,6 @@
 package com.example.kirchhoff.kotlin
 
-import com.example.kirchhoff.kotlin.extensions.toDateString
+import com.example.kirchhoff.kotlin.kotlinbook.extensions.toDateString
 import junit.framework.Assert.assertEquals
 import org.junit.Test
 import java.text.DateFormat
