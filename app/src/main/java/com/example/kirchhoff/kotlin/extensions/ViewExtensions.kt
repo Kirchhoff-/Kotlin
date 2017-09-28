@@ -1,13 +1,21 @@
 package com.example.kirchhoff.kotlin.extensions
 
+import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.drawable.Drawable
+import android.support.annotation.ColorRes
+import android.support.annotation.DrawableRes
 import android.support.annotation.LayoutRes
 import android.support.annotation.StringRes
 import android.support.design.widget.Snackbar
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 
 /**
@@ -55,4 +63,27 @@ inline fun RecyclerView.setSwipeListener(swipeDirs: Int, crossinline listener: S
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) = listener(viewHolder, direction)
     }).attachToRecyclerView(this)
+}
+
+fun View.hideKeyboard() {
+    val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.hideSoftInputFromWindow(windowToken, 0)
+}
+
+fun Context.canLaunchIntent(intent: Intent): Boolean {
+    val manager = packageManager
+    val infos = manager.queryIntentActivities(intent, 0)
+    return infos.size > 0
+}
+
+fun Context.colorCompat(@ColorRes resId: Int): Int {
+    return ContextCompat.getColor(this, resId)
+}
+
+fun Context.drawableCompat(@DrawableRes resId: Int): Drawable {
+    return ContextCompat.getDrawable(this, resId)
+}
+
+fun Context.hasPermission(permission: String): Boolean {
+    return ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
 }
