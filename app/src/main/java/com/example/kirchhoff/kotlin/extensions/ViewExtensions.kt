@@ -80,7 +80,7 @@ fun Context.colorCompat(@ColorRes resId: Int): Int {
     return ContextCompat.getColor(this, resId)
 }
 
-fun Context.drawableCompat(@DrawableRes resId: Int): Drawable {
+fun Context.drawableCompat(@DrawableRes resId: Int): Drawable? {
     return ContextCompat.getDrawable(this, resId)
 }
 
