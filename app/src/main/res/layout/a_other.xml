@@ -12,4 +12,10 @@
         android:layout_gravity="center"
         android:text="GO!" />
 
+    <Button
+        android:id="@+id/bCoroutines"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Coroutines"/>
+
 </LinearLayout>

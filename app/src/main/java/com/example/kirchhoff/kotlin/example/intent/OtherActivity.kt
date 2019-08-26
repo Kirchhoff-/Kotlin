@@ -3,6 +3,7 @@ package com.example.kirchhoff.kotlin.example.intent
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import com.example.coroutines.CoroutinesActivity
 import com.example.kirchhoff.kotlin.R
 import kotlinx.android.synthetic.main.a_other.*
 
@@ -45,6 +46,10 @@ class OtherActivity : Activity() {
             launchActivity<UserDetailActivity>(requestCode = 1234) {
                 putExtra(INTENT_USER_ID, argument)
             }
+        }
+
+        bCoroutines.setOnClickListener {
+            launchActivity<CoroutinesActivity>()
         }
     }
 }
