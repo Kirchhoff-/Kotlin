@@ -2,9 +2,12 @@ package com.example.kirchhoff.kotlin.example.intent
 
 import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import com.example.coroutines.CoroutinesActivity
 import com.example.kirchhoff.kotlin.R
+import com.example.kirchhoff.kotlin.extensions.setVisibile
+import com.example.kirchhoff.kotlin.ranges.RangeActivity
 import kotlinx.android.synthetic.main.a_other.*
 
 /**
@@ -50,6 +53,15 @@ class OtherActivity : Activity() {
 
         bCoroutines.setOnClickListener {
             launchActivity<CoroutinesActivity>()
+        }
+
+        if (Build.VERSION.SDK_INT >= 26) {
+            bRange.setVisibile(true)
+            bRange.setOnClickListener {
+                launchActivity<RangeActivity>()
+            }
+        } else {
+            bRange.setVisibile(false)
         }
     }
 }
