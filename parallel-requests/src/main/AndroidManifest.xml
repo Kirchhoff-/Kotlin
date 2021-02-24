@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kirchhoff.parallel_requests">
+
+    <application>
+        <activity android:name=".ParallelRequestsActivity" />
+    </application>
+
+</manifest>
