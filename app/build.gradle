@@ -23,7 +23,6 @@ android {
 
 dependencies {
     implementation project(':coroutines')
-    implementation project(':parallel-requests')
     implementation "com.android.support:appcompat-v7:$support_version"
     implementation "com.android.support:design:$support_version"
     implementation "com.android.support:recyclerview-v7:$support_version"
