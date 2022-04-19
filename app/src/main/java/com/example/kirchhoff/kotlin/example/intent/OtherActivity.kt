@@ -8,7 +8,6 @@ import com.example.coroutines.CoroutinesActivity
 import com.example.kirchhoff.kotlin.R
 import com.example.kirchhoff.kotlin.extensions.setVisibile
 import com.example.kirchhoff.kotlin.ranges.RangeActivity
-import com.kirchhoff.parallel_requests.ParallelRequestsActivity
 import kotlinx.android.synthetic.main.a_other.*
 
 /**
@@ -63,10 +62,6 @@ class OtherActivity : Activity() {
             }
         } else {
             bRange.setVisibile(false)
-        }
-
-        bParallelRequests.setOnClickListener {
-            launchActivity<ParallelRequestsActivity>()
         }
     }
 }
