@@ -12,12 +12,6 @@
         android:text="GO!" />
 
     <Button
-        android:id="@+id/bCoroutines"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Coroutines" />
-
-    <Button
         android:id="@+id/bRange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

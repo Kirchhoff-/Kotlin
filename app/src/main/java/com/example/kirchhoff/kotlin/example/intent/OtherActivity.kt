@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import com.example.coroutines.CoroutinesActivity
 import com.example.kirchhoff.kotlin.R
 import com.example.kirchhoff.kotlin.extensions.setVisibile
 import com.example.kirchhoff.kotlin.ranges.RangeActivity
@@ -49,10 +48,6 @@ class OtherActivity : Activity() {
             launchActivity<UserDetailActivity>(requestCode = 1234) {
                 putExtra(INTENT_USER_ID, argument)
             }
-        }
-
-        bCoroutines.setOnClickListener {
-            launchActivity<CoroutinesActivity>()
         }
 
         if (Build.VERSION.SDK_INT >= 26) {
