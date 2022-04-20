@@ -1,1 +1,1 @@
-include ':app', ':coroutines'
+include ':app'
