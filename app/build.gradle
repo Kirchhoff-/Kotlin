@@ -3,16 +3,18 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    compileSdkVersion 32
+    buildToolsVersion "32.0.0"
+
     defaultConfig {
         applicationId "com.example.kirchhoff.kotlin"
         minSdkVersion 21
-        targetSdkVersion 27
+        targetSdkVersion 32
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -22,8 +24,6 @@ android {
 }
 
 dependencies {
-    implementation "com.android.support:appcompat-v7:$support_version"
-    implementation "com.android.support:design:$support_version"
-    implementation "com.android.support:recyclerview-v7:$support_version"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$appcompat"
+    implementation "com.google.android.material:material:$material"
 }
