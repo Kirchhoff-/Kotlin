@@ -1,0 +1,24 @@
+ext.versions = [
+        versionCode            : 1,
+        versionName            : '1.0',
+        minSdk                 : 21,
+        targetSdk              : 32,
+        compileSdk             : 32,
+
+        buildTools             : '32.0.0',
+        androidToolsBuildGradle: '7.2.1',
+        kotlin                 : '1.6.21',
+        appcompat              : '1.4.2',
+        material               : '1.6.1'
+]
+
+ext.gradlePlugins = [
+        android        : "com.android.tools.build:gradle:$versions.androidToolsBuildGradle",
+        kotlin         : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+        kotlinExtension: "org.jetbrains.kotlin:kotlin-android-extensions:$versions.kotlin"
+]
+
+ext.libraries = [
+        appCompat: "androidx.appcompat:appcompat:$versions.appcompat",
+        material : "com.google.android.material:material:$versions.material"
+]
