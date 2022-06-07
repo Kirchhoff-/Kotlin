@@ -4,10 +4,9 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import com.example.kirchhoff.kotlin.R
 import com.example.kirchhoff.kotlin.databinding.AOtherBinding
 import com.example.kirchhoff.kotlin.extensions.setVisibile
-import com.example.kirchhoff.kotlin.ranges.RangeActivity
+import com.example.ranges.RangeActivity
 
 /**
  * @author Kirchhoff-
