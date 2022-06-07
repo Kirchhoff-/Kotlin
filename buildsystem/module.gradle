@@ -9,6 +9,10 @@ android {
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
     }
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {

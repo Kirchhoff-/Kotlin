@@ -14,8 +14,7 @@ ext.versions = [
 
 ext.gradlePlugins = [
         android        : "com.android.tools.build:gradle:$versions.androidToolsBuildGradle",
-        kotlin         : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
-        kotlinExtension: "org.jetbrains.kotlin:kotlin-android-extensions:$versions.kotlin"
+        kotlin         : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
 ]
 
 ext.libraries = [

@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply from: '../buildsystem/dependencies.gradle'
 
 android {
@@ -13,6 +12,10 @@ android {
         targetSdkVersion versions.targetSdk
         versionCode versions.versionCode
         versionName versions.versionName
+    }
+
+    buildFeatures {
+        viewBinding true
     }
 
     buildTypes {
