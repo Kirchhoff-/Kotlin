@@ -1,12 +1,11 @@
-package com.example.kirchhoff.kotlin.ranges
+package com.example.ranges
 
 import android.app.Activity
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.annotation.RequiresApi
-import com.example.kirchhoff.kotlin.R
-import com.example.kirchhoff.kotlin.ranges.data.rangeTo
+import com.example.ranges.data.rangeTo
 import java.time.LocalDate
 
 @RequiresApi(Build.VERSION_CODES.O)

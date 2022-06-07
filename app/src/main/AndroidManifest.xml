@@ -21,8 +21,6 @@
         </activity>
 
         <activity android:name=".example.intent.UserDetailActivity" />
-
-        <activity android:name=".ranges.RangeActivity" />
     </application>
 
 </manifest>

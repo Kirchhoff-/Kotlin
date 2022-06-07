@@ -1,4 +1,4 @@
-package com.example.kirchhoff.kotlin.ranges.data
+package com.example.ranges.data
 
 import android.annotation.SuppressLint
 import java.time.LocalDate
