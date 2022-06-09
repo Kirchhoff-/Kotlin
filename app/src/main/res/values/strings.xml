@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">Kotlin</string>
-    <string name="settings">Settings</string>
-    <string name="city_zipcode">Сity ZipCode</string>
+    <string name="range">Range</string>
 </resources>

@@ -18,4 +18,5 @@ android {
 dependencies {
     implementation libraries.appCompat
     implementation libraries.material
+    implementation libraries.coreKtx
 }
