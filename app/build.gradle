@@ -18,6 +18,11 @@ android {
         viewBinding true
     }
 
+    lintOptions {
+        disable 'ContentDescription'
+        warningsAsErrors true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
