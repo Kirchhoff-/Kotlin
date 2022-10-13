@@ -5,11 +5,15 @@ buildscript {
     repositories {
         mavenCentral()
         google()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
 
     dependencies {
         classpath gradlePlugins.android
         classpath gradlePlugins.kotlin
+        classpath gradlePlugins.ktlint
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

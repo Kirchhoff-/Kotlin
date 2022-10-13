@@ -10,12 +10,14 @@ ext.versions = [
         kotlin                 : '1.6.21',
         appcompat              : '1.4.2',
         material               : '1.6.1',
-        coreKtx                : '1.8.0'
+        coreKtx                : '1.8.0',
+        ktlint                 : '11.0.0'
 ]
 
 ext.gradlePlugins = [
         android        : "com.android.tools.build:gradle:$versions.androidToolsBuildGradle",
-        kotlin         : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+        kotlin         : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+        ktlint         : "org.jlleitschuh.gradle:ktlint-gradle:$versions.ktlint"
 ]
 
 ext.libraries = [
