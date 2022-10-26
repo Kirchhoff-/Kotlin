@@ -11,17 +11,20 @@ ext.versions = [
         appcompat              : '1.4.2',
         material               : '1.6.1',
         coreKtx                : '1.8.0',
-        ktlint                 : '11.0.0'
+        ktlint                 : '11.0.0',
+        detekt                 : '1.21.0'
 ]
 
 ext.gradlePlugins = [
-        android        : "com.android.tools.build:gradle:$versions.androidToolsBuildGradle",
-        kotlin         : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
-        ktlint         : "org.jlleitschuh.gradle:ktlint-gradle:$versions.ktlint"
+        android     : "com.android.tools.build:gradle:$versions.androidToolsBuildGradle",
+        kotlin      : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+        ktlint      : "org.jlleitschuh.gradle:ktlint-gradle:$versions.ktlint",
+        detekt      : "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$versions.detekt",
+        detektPlugin: "io.gitlab.arturbosch.detekt"
 ]
 
 ext.libraries = [
         appCompat: "androidx.appcompat:appcompat:$versions.appcompat",
         material : "com.google.android.material:material:$versions.material",
-        coreKtx: "androidx.core:core-ktx:$versions.coreKtx"
+        coreKtx  : "androidx.core:core-ktx:$versions.coreKtx"
 ]

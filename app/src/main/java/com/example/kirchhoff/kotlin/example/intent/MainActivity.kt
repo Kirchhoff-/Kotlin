@@ -23,7 +23,7 @@ class MainActivity : Activity() {
         setContentView(binding.root)
 
         with(binding) {
-            bRange.isVisible = Build.VERSION.SDK_INT >= 26
+            bRange.isVisible = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
             bRange.setOnClickListener {
                 startActivity(Intent(this@MainActivity, RangeActivity::class.java))
             }

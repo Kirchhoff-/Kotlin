@@ -15,20 +15,30 @@ class RangeActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_range)
 
-        val startDate = LocalDate.of(2020, 1, 1)
-        val endDate = LocalDate.of(2020, 12, 31)
-        for (date in startDate..endDate step 7) {
+        val startDate = LocalDate.of(YEAR, START_MONTH, START_DAY)
+        val endDate = LocalDate.of(YEAR, END_MONTH, END_DAY)
+        for (date in startDate..endDate step WEEK) {
             Log.d("RangeActivity", "${date.dayOfWeek} $date ")
         }
 
-        val startDate2 = LocalDate.of(2020, 1, 1)
-        val endDate2 = LocalDate.of(2020, 12, 31)
-        for (date in startDate2..endDate2 step 2) {
+        val startDate2 = LocalDate.of(YEAR, START_MONTH, START_DAY)
+        val endDate2 = LocalDate.of(YEAR, END_MONTH, END_DAY)
+        for (date in startDate2..endDate2 step TWO_DAYS) {
             Log.d("RangeActivity", "${date.dayOfWeek} $date ")
         }
 
-        val startDate3 = LocalDate.of(2020, 1, 1)
-        val endDate3 = LocalDate.of(2020, 12, 31)
+        val startDate3 = LocalDate.of(YEAR, START_MONTH, START_DAY)
+        val endDate3 = LocalDate.of(YEAR, END_MONTH, END_DAY)
         if (LocalDate.now() in startDate3..endDate3) Log.d("RangeActivity", "Welcome in 2020!")
+    }
+
+    private companion object {
+        const val YEAR = 2022
+        const val START_MONTH = 1
+        const val END_MONTH = 12
+        const val START_DAY = 1
+        const val END_DAY = 31
+        const val TWO_DAYS = 2L
+        const val WEEK = 7L
     }
 }
