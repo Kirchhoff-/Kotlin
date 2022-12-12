@@ -38,4 +38,5 @@ dependencies {
     implementation libraries.coreKtx
 
     implementation project(':ranges')
+    implementation project(':singlenetworkrequest')
 }

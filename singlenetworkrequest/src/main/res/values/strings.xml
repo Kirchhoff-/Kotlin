@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="single_network_request">Perform single network request</string>
+  <string name="single_network_request_info_from_server_pattern">Info from server: %s</string>
+</resources>
