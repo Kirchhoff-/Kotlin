@@ -7,11 +7,9 @@ import android.os.Build
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.example.kirchhoff.kotlin.databinding.AOtherBinding
+import com.example.kirchhoff.kotlin.singlenetworkrequest.SingleNetworkRequestActivity
 import com.example.ranges.RangeActivity
 
-/**
- * @author Kirchhoff-
- */
 class MainActivity : Activity() {
 
     private lateinit var binding: AOtherBinding
@@ -26,6 +24,9 @@ class MainActivity : Activity() {
             bRange.isVisible = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
             bRange.setOnClickListener {
                 startActivity(Intent(this@MainActivity, RangeActivity::class.java))
+            }
+            bSingleNetworkRequest.setOnClickListener {
+                startActivity(Intent(this@MainActivity, SingleNetworkRequestActivity::class.java))
             }
         }
     }

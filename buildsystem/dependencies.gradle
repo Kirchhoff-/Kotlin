@@ -8,6 +8,7 @@ ext.versions = [
         buildTools             : '32.0.0',
         androidToolsBuildGradle: '7.2.1',
         kotlin                 : '1.6.21',
+        activityKtx            : '1.4.0',
         appcompat              : '1.4.2',
         material               : '1.6.1',
         coreKtx                : '1.8.0',
@@ -26,5 +27,6 @@ ext.gradlePlugins = [
 ext.libraries = [
         appCompat: "androidx.appcompat:appcompat:$versions.appcompat",
         material : "com.google.android.material:material:$versions.material",
-        coreKtx  : "androidx.core:core-ktx:$versions.coreKtx"
+        coreKtx  : "androidx.core:core-ktx:$versions.coreKtx",
+        activityKtx: "androidx.activity:activity-ktx:$versions.activityKtx"
 ]

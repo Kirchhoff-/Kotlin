@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Kotlin</string>
     <string name="range">Range</string>
+    <string name="single_network_request">Perform single network request</string>
 </resources>
