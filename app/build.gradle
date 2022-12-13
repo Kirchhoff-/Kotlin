@@ -16,12 +16,21 @@ android {
     }
 
     buildFeatures {
-        viewBinding true
+        compose true
     }
 
     lintOptions {
         disable 'ContentDescription'
         warningsAsErrors true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion versions.composeCompiler
     }
 
     buildTypes {
@@ -34,8 +43,11 @@ android {
 
 dependencies {
     implementation libraries.appCompat
-    implementation libraries.material
-    implementation libraries.coreKtx
+
+    implementation libraries.composeActivity
+    implementation libraries.composeMaterial
+    implementation libraries.composeUITooling
+    implementation libraries.composeLiveData
 
     implementation project(':ranges')
     implementation project(':singlenetworkrequest')

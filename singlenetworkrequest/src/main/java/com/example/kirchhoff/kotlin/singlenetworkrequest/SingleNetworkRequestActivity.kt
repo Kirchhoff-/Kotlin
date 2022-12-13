@@ -1,65 +1,84 @@
 package com.example.kirchhoff.kotlin.singlenetworkrequest
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.core.view.isVisible
+import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Button
+import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.kirchhoff.kotlin.core.ScreenData
-import com.example.kirchhoff.kotlin.singlenetworkrequest.databinding.ActivitySingleNetworkRequestBinding
 
-class SingleNetworkRequestActivity: AppCompatActivity() {
+class SingleNetworkRequestActivity : AppCompatActivity() {
 
-  private lateinit var binding: ActivitySingleNetworkRequestBinding
-  private val viewModel: SingleNetworkRequestViewModel by viewModels()
+    private val viewModel: SingleNetworkRequestViewModel by viewModels()
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    binding = ActivitySingleNetworkRequestBinding.inflate(layoutInflater)
-    setContentView(binding.root)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-    viewModel.screenData.observe(this) {
-      if (it != null) {
-        displayData(it)
-      }
+        setContent {
+            SingleNetworkRequestUi(viewModel)
+        }
     }
-    binding.bPerformRequest.setOnClickListener {
-      viewModel.requestData()
+}
+
+@Preview
+@Composable
+fun SingleNetworkRequestUiPreview() {
+    SingleNetworkRequestUi(SingleNetworkRequestViewModel())
+}
+
+@Composable
+fun SingleNetworkRequestUi(viewModel: SingleNetworkRequestViewModel) {
+    val currentState by viewModel.screenData.observeAsState()
+
+    val loadingVisible = currentState is ScreenData.Loading
+    val textVisible = currentState is ScreenData.Success || currentState is ScreenData.Error
+    val buttonEnabled = !loadingVisible
+    val resultText = when (currentState) {
+        is ScreenData.Success -> stringResource(
+            id = R.string.single_network_request_info_from_server_pattern,
+            (currentState as ScreenData.Success<out SingleNetworkRequestScreenData>).data.information
+        )
+        is ScreenData.Error -> (currentState as ScreenData.Error).message
+        else -> ""
     }
-  }
 
-  private fun displayData(screenData: ScreenData<out SingleNetworkRequestScreenData>) {
-    when (screenData) {
-      is ScreenData.Success -> showInformationFromServer(screenData.data)
-      is ScreenData.Error -> showError(screenData.message)
-      is ScreenData.Loading -> showLoading()
+    Column {
+        Button(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            enabled = buttonEnabled,
+            onClick = { viewModel.requestData() }
+        ) {
+            Text(stringResource(id = R.string.single_network_request))
+        }
+        AnimatedVisibility(
+            visible = loadingVisible,
+            modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+        ) {
+            CircularProgressIndicator()
+        }
+        AnimatedVisibility(
+            visible = textVisible,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, end = 16.dp)
+        ) {
+            Text(text = resultText)
+        }
     }
-  }
-
-  private fun showInformationFromServer(screenData: SingleNetworkRequestScreenData) {
-    with(binding) {
-      bPerformRequest.isEnabled = true
-      pbLoading.isVisible = false
-      tvInfo.isVisible = true
-
-      tvInfo.text = getString(R.string.single_network_request_info_from_server_pattern, screenData.information)
-    }
-  }
-
-  private fun showError(message: String) {
-    with(binding) {
-      bPerformRequest.isEnabled = true
-      pbLoading.isVisible = false
-      tvInfo.isVisible = true
-
-      tvInfo.text = message
-    }
-  }
-
-  private fun showLoading() {
-    with(binding) {
-      bPerformRequest.isEnabled = false
-      tvInfo.isVisible = false
-      pbLoading.isVisible = true
-    }
-  }
 }

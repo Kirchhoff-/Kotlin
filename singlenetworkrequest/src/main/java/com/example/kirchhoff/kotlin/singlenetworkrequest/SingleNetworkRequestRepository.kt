@@ -6,12 +6,16 @@ import java.io.IOException
 import kotlin.random.Random
 
 class SingleNetworkRequestRepository {
-  suspend fun requestInfo(): String {
-    delay(5000)
-    return if (Random.nextBoolean()) {
-      Random.nextString()
-    } else {
-      throw IOException(Random.nextString())
+    suspend fun requestInfo(): String {
+        delay(DELAY_TIME)
+        return if (Random.nextBoolean()) {
+            Random.nextString()
+        } else {
+            throw IOException(Random.nextString())
+        }
     }
-  }
+
+    private companion object {
+        const val DELAY_TIME = 5000L
+    }
 }
