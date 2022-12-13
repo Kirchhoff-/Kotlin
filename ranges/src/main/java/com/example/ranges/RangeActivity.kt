@@ -1,19 +1,18 @@
 package com.example.ranges
 
-import android.app.Activity
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import com.example.ranges.data.rangeTo
 import java.time.LocalDate
 
 @RequiresApi(Build.VERSION_CODES.O)
-class RangeActivity : Activity() {
+class RangeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_range)
 
         val startDate = LocalDate.of(YEAR, START_MONTH, START_DAY)
         val endDate = LocalDate.of(YEAR, END_MONTH, END_DAY)
