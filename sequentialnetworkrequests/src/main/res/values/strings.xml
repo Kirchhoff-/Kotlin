@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="sequential_network_request">Perform two sequential network requests</string>
+  <string name="sequential_network_request_info_from_server_pattern">Info from server: %s</string>
+  <string name="sequential_network_request_additional_info_from_server_pattern">Additional info from server: %s</string>
+</resources>

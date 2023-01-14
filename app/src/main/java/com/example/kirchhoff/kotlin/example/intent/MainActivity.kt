@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.kirchhoff.kotlin.R
+import com.example.kirchhoff.kotlin.sequentialnetworkrequests.SequentialNetworkRequestActivity
 import com.example.kirchhoff.kotlin.singlenetworkrequest.SingleNetworkRequestActivity
 import com.example.ranges.RangeActivity
 
@@ -39,6 +40,14 @@ class MainActivity : AppCompatActivity() {
                             SingleNetworkRequestActivity::class.java
                         )
                     )
+                },
+                sequentialNetworkRequestsClickListener = {
+                    startActivity(
+                        Intent(
+                            this@MainActivity,
+                            SequentialNetworkRequestActivity::class.java
+                        )
+                    )
                 }
             )
         }
@@ -48,13 +57,14 @@ class MainActivity : AppCompatActivity() {
 @Preview
 @Composable
 fun MainActivityUiPreview() {
-    MainActivityUi({}, {})
+    MainActivityUi({}, {}, {})
 }
 
 @Composable
 fun MainActivityUi(
     rangeClickListener: (() -> Unit),
-    singleNetworkRequestClickListener: (() -> Unit)
+    singleNetworkRequestClickListener: (() -> Unit),
+    sequentialNetworkRequestsClickListener: (() -> Unit)
 ) {
     Column {
         Button(
@@ -68,6 +78,12 @@ fun MainActivityUi(
             onClick = { singleNetworkRequestClickListener.invoke() }
         ) {
             Text(stringResource(id = R.string.single_network_request))
+        }
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = { sequentialNetworkRequestsClickListener.invoke() }
+        ) {
+            Text(stringResource(id = R.string.two_network_request_sequential))
         }
     }
 }
